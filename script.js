@@ -114,27 +114,40 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  const webhookUrl = "https://discord.com/api/webhooks/1081343533706920006/502uMI6c59hUEy2gNiuMR7ctV-XhnZB-EuKTf-kgHY3NONLJWCFlq0cI_-slmcqYxCjV";
   const name = document.querySelector("input[type=text][placeholder=Name]").value;
+  const contact = document.querySelector(".contact heading");
   const subject = document.querySelector("input[type=text][placeholder=Subject]").value;
   const message = document.querySelector("textarea").value;
+  const payload = JSON.stringify({
+    embeds: [
+      {
+        author: {
+            name: `Name: ${name}`,
+        },
 
-  const data = { name, subject, message };
-  const options = {
+        title: `Subject: ${subject}`,
+        description: `Message: ${message}`,
+      },
+    ],
+  });
+  
+
+  fetch(webhookUrl, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
-  };
+    body: payload,
+  })
+    .then((response) => console.log(response))
+    .catch((error) => console.error(error))})
 
-  fetch("https://discord.com/api/webhooks/1081343533706920006/502uMI6c59hUEy2gNiuMR7ctV-XhnZB-EuKTf-kgHY3NONLJWCFlq0cI_-slmcqYxCjV", options)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+
+
+
+    function showMessage() {
+        var sentSound = document.getElementById("sent-sound");
+        sentSound.play();
       }
-      console.log("Message sent successfully!");
-    })
-    .catch(error => {
-      console.error("Error sending message:", error);
-    });
-});
+      
