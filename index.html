@@ -86,7 +86,8 @@
                     <input type="text" placeholder="Name"> <input type="text" placeholder="Subject">
                 </div>
                 <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                <input type="submit" value="Send Message" class="btn">
+                <input type="submit" value="Send Message" class="btn" onclick="showMessage()">
+            
             </form>
         </section>
 
@@ -94,6 +95,7 @@
 
         <script src="type.js"></script>
         <script src="script.js"></script>
+        <audio id="sent-sound" src="sent.mp3"></audio>
 
     </body>
 </html>
