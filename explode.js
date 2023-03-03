@@ -1,11 +1,14 @@
 function explode() {
+  // Remove any existing elements from the DOM
   const existingElements = document.querySelectorAll('body > *');
   existingElements.forEach(element => {
     element.remove();
   });
 
+  // Set the background color of the body
   document.body.style.background = '#1f242d';
 
+  // Create a new div to hold the GIF
   const div = document.createElement('div');
   div.style.position = 'fixed';
   div.style.top = 0;
@@ -18,9 +21,11 @@ function explode() {
   const audio = new Audio('https://captainryna.xyz/explode.mp3');
   audio.play();
 
+  // Add the div to the DOM
   document.body.appendChild(div);
 
   setTimeout(() => {
+    // Remove the GIF and display the message
     div.remove();
     const message = document.createElement('div');
     message.innerHTML = 'You exploded the page. Refresh to return.';
@@ -31,5 +36,6 @@ function explode() {
     message.style.marginTop = '50vh';
     document.body.appendChild(message);
   
+    // Play the sound
   }, 1200);
 }
