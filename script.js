@@ -114,7 +114,7 @@ const form = document.querySelector("form");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const webhookUrl = "https://discord.com/api/webhooks/1081343533706920006/502uMI6c59hUEy2gNiuMR7ctV-XhnZB-EuKTf-kgHY3NONLJWCFlq0cI_-slmcqYxCjV";
+  const webhookUrl = "https://discord.com/api/webhooks" + "1081372130106675271/OK5hC5G3c3Mdj_hKXVD5HXRffIIqWr8FgW4cLlDrPvzs1IGAahFOnYyNXXU8cSNWS-hY";
   const name = document.querySelector("input[type=text][placeholder=Name]").value;
   const contact = document.querySelector(".contact heading");
   const subject = document.querySelector("input[type=text][placeholder=Subject]").value;
